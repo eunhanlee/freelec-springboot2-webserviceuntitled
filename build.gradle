@@ -26,21 +26,26 @@ repositories {
 }
 
 dependencies {
+    // spring boot starter lib
     implementation('org.springframework.boot:spring-boot-starter-web')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-
 
     // lombok plugin
     implementation('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
-    // test 환경
+    // lombok for test
     testImplementation('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
 
-//    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    // 스프랑 부트용 스프링 데이터 JPA lib
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    //Relational Database
+    implementation('com.h2database:h2')
+
+
 //    implementation('org.springframework.boot:spring-boot-starter-mustache')
-//    implementation('com.h2database:h2')
+
 //
 //    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
 //    implementation('org.springframework.session:spring-session-jdbc')
