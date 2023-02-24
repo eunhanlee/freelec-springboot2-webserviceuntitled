@@ -1,7 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
-//import com.jojoldu.book.springboot.domain.BaseTimeEntity;
-
+import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 /*
 for Entity class, Donot create setter because value may change in any places and cause confusion
@@ -42,8 +42,8 @@ Example.builder()
 //JPA annotation, connect with DB class name matched with snake case
 // ex) SalesManager->sales_manager
 @Entity
-//public class Posts extends BaseTimeEntity {
-public class Posts {
+public class Posts extends BaseTimeEntity {
+//public class Posts {
     //Primary Key field
     @Id
     //Primary Key cration rules
@@ -60,6 +60,7 @@ public class Posts {
 
     private String author;
 
+
     //lombok annotation, make builder class
     @Builder
     public Posts(String title, String content, String author) {
@@ -72,4 +73,7 @@ public class Posts {
         this.title = title;
         this.content = content;
     }
+
+
+
 }

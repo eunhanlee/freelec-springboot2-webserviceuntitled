@@ -45,18 +45,18 @@ public class PostsApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
-    //    @Autowired
-//    private WebApplicationContext context;
-//
+        @Autowired
+    private WebApplicationContext context;
+
     private MockMvc mvc;
 
-//    @Before
-//    public void setup() {
-//        mvc = MockMvcBuilders
-//                .webAppContextSetup(context)
+    @Before
+    public void setup() {
+        mvc = MockMvcBuilders
+                .webAppContextSetup(context)
 //                .apply(springSecurity())
-//                .build();
-//    }
+                .build();
+    }
 
     @After
     public void tearDown() throws Exception {
@@ -78,11 +78,11 @@ public class PostsApiControllerTest {
         String url = "http://localhost:" + port + "/api/v1/posts";
 
         //when
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, long.class);
-//        mvc.perform(post(url)
-//                        .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                        .content(new ObjectMapper().writeValueAsString(requestDto)))
-//                .andExpect(status().isOk());
+//        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, long.class);
+        mvc.perform(post(url)
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(new ObjectMapper().writeValueAsString(requestDto)))
+                .andExpect(status().isOk());
 
 
         //then
@@ -115,13 +115,13 @@ public class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestEnity=new HttpEntity<>(requestDto);
 
         //when
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEnity, long.class);
+//        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEnity, long.class);
 
 
-//        mvc.perform(put(url)
-//                        .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                        .content(new ObjectMapper().writeValueAsString(requestDto)))
-//                .andExpect(status().isOk());
+        mvc.perform(put(url)
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(new ObjectMapper().writeValueAsString(requestDto)))
+                .andExpect(status().isOk());
 
         //then
         List<Posts> all = postsRepository.findAll();
