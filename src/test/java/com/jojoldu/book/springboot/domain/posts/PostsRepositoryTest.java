@@ -21,6 +21,7 @@ public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
+    //02-24-2023, currently the @After -> @AfterEach
     @After
     public void cleanup() {
         postsRepository.deleteAll();
